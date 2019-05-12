@@ -8,17 +8,17 @@
 
 def preorder(self, root: 'Node') -> List[int]:
     self.pre_list = []
-    # self.recurrsive(root)
+    # self.recursive(root)
     self.iterative(root)
     return self.pre_list
 
-def recurrsive(self, root: 'Node') -> List[int]:
+def recursive(self, root: 'Node') -> List[int]:
     if root == None:
         return
 
     self.pre_list.append(root.val)
     for i, child in enumerate(root.children):
-        self.recurrsive(root.children[i])
+        self.recursive(root.children[i])
 
 def iterative(self, root: 'Node') -> List[int]:
 

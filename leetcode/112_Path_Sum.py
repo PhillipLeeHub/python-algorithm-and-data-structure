@@ -24,10 +24,10 @@
 #         self.right = None
 def hasPathSum(self, root: TreeNode, sum: int) -> bool:
     if root == None: return False
-    # return self.recurrsive(root, sum)
+    # return self.recursive(root, sum)
     return self.iterative(root, sum)
 
-def recurrsive(self, root: TreeNode, sum: int, running_sum=0) -> bool:
+def recursive(self, root: TreeNode, sum: int, running_sum=0) -> bool:
     if root == None:
         return False
 
@@ -36,7 +36,7 @@ def recurrsive(self, root: TreeNode, sum: int, running_sum=0) -> bool:
         if running_sum == sum:
             return True
 
-    return self.recurrsive(root.left, sum, running_sum) or self.recurrsive(root.right, sum, running_sum)
+    return self.recursive(root.left, sum, running_sum) or self.recursive(root.right, sum, running_sum)
 
 def iterative(self, root: TreeNode, sum: int) -> bool:
     stack = [(root, 0)]

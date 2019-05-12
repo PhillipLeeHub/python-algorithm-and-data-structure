@@ -24,7 +24,7 @@
 # Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 def fib(self, N: int) -> int:
     self.dict = {}
-    # return self.mem_recurrsive(N)
+    # return self.mem_recursive(N)
     # return self.const_space_iterative(N)
     return self.dp_iterative(N)
 
@@ -67,7 +67,7 @@ def const_space_iterative(self, N: int) -> int:
     return sum
 
 
-def mem_recurrsive(self, N: int) -> int:
+def mem_recursive(self, N: int) -> int:
     '''
     36ms 79% faster
     13.3MB 5% less
@@ -79,14 +79,14 @@ def mem_recurrsive(self, N: int) -> int:
     if N == 1:
         return 1
 
-    num1 = self.mem_recurrsive(N - 1)
+    num1 = self.mem_recursive(N - 1)
     self.dict[N - 1] = num1
-    num2 = self.mem_recurrsive(N - 2)
+    num2 = self.mem_recursive(N - 2)
     self.dict[N - 2] = num2
     return (num1 + num2)
 
 
-def recurrsive(self, N: int) -> int:
+def recursive(self, N: int) -> int:
     # 1220ms 6.02% faster
     # 13.1MB . 5.02% less
     if N == 0:

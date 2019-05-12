@@ -19,9 +19,9 @@
 import queue
 # def isSymmetric(self, root: TreeNode) -> bool:
 #     self.queue = queue.Queue()
-#     # return self.recurrsive(root, root)
+#     # return self.recursive(root, root)
 #     return self.iterative(root)
-def isSymmetric_recurrsive(self, root1: TreeNode, root2: TreeNode) -> bool:
+def isSymmetric_recursive(self, root1: TreeNode, root2: TreeNode) -> bool:
     if root1 == None and root2 == None:
         return True
     if root1 == None or root2 == None:
@@ -30,8 +30,8 @@ def isSymmetric_recurrsive(self, root1: TreeNode, root2: TreeNode) -> bool:
     if root1.val != root2.val:
         return False
 
-    return (self.recurrsive(root1.left, root2.right) and
-            self.recurrsive(root2.left, root1.right))
+    return (self.recursive(root1.left, root2.right) and
+            self.recursive(root2.left, root1.right))
 
 def isSymmetric_iterative(self, root: TreeNode) -> bool:
     result = True

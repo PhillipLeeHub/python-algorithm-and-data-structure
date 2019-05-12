@@ -21,7 +21,7 @@ class TreeNode:
         self.right = None
 
 
-def inorderTraversal_recurrsive(self, root: TreeNode) -> List[int]:
+def inorderTraversal_recursive(self, root: TreeNode) -> List[int]:
     '''
     52ms
     13.2MB
@@ -29,9 +29,9 @@ def inorderTraversal_recurrsive(self, root: TreeNode) -> List[int]:
     if root == None:
         return
 
-    self.recurrsive(root.left)
+    self.recursive(root.left)
     self.list.append(root.val)
-    self.recurrsive(root.right)
+    self.recursive(root.right)
     return
 
 

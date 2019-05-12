@@ -21,22 +21,22 @@
 # The final answer is guaranteed to be less than 2^31.
 def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
     self.results = 0
-    # self.recurrsive(root, L, R)
+    # self.recursive(root, L, R)
     # return self.results
 
     self.iterative(root, L, R)
     return self.results
 
 
-def recurrsive(self, root: TreeNode, L: int, R: int) -> int:
+def recursive(self, root: TreeNode, L: int, R: int) -> int:
     if root == None:
         return
 
     if L <= root.val <= R:
         self.results += root.val
 
-    self.recurrsive(root.left, L, R)
-    self.recurrsive(root.right, L, R)
+    self.recursive(root.left, L, R)
+    self.recursive(root.right, L, R)
 
 
 def iterative(self, root: TreeNode, L: int, R: int) -> int:

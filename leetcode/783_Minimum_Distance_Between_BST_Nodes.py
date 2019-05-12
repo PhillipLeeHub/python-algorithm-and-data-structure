@@ -25,10 +25,10 @@ def minDiffInBST(self, root: TreeNode) -> int:
     # Iterative
     return self.iterative(root)
 
-    # Recurrsive
+    # recursive
     # self.res = float('inf')
     # self.prev = -float('inf')
-    # return self.recurrsive(root)
+    # return self.recursive(root)
 
 
 def iterative(self, root) -> int:
@@ -56,7 +56,7 @@ def iterative(self, root) -> int:
     return self.res
 
 
-def recurrsive(self, root) -> int:
+def recursive(self, root) -> int:
     '''
     40ms
     13.3MB
@@ -64,10 +64,10 @@ def recurrsive(self, root) -> int:
     if root == None:
         return None
 
-    self.recurrsive(root.left)
+    self.recursive(root.left)
 
     self.res = min(self.res, root.val - self.prev)
     self.prev = root.val
 
-    self.recurrsive(root.right)
+    self.recursive(root.right)
     return self.res
