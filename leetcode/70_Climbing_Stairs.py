@@ -27,11 +27,11 @@ def climbStairs(self, n: int) -> int:
 
 
 def mem_recursion(self, n: int, i: int = 0) -> int:
-    if n < 0:
-        return 0
-
-    if n == 0:
-        return 1
+    # If 1 step left, only take 1 step
+    if n == 1: return 1
+    # If 2 steps left, there are 2 possible step paths.
+    # 1 step + 1 step OR 2 steps
+    if n == 2: return 2
 
     if n in self.dict:
         return self.dict[n]
@@ -49,3 +49,5 @@ def iterative(self, n: int, i: int = 0) -> int:
         arr[i] = (arr[i - 1] + arr[i - 2])
 
     return arr[n]
+
+
