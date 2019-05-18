@@ -41,7 +41,6 @@ def dp_iterative(self, N: int) -> int:
         i += 1
     return list_dp[N]
 
-
 def const_space_iterative(self, N: int) -> int:
     ''' Constant space
     NOT WORKING YET
