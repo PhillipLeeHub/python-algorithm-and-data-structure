@@ -1,13 +1,5 @@
-# 23. Merge k Sorted Lists hard
-# Hard
+# 23. Merge k Sorted Lists hard Hard
 #
-# 2414
-#
-# 155
-#
-# Favorite
-#
-# Share
 # Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 #
 # Example:
