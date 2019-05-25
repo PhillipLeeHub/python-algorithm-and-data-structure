@@ -28,23 +28,28 @@ def recurive(self, head: ListNode) -> ListNode:
     node_1.next = self.recurive(node_1.next)
     return node_2
 
-
 def iterative(self, head: ListNode) -> ListNode:
     '''
     Runtime: 28 ms, faster than 99.69% of Python3 online submissions for Swap Nodes in Pairs.
     Memory Usage: 13.1 MB, less than 58.07% of Python3 online submissions for Swap Nodes in Pairs.
     '''
+    # 0->1->2->3->4,
     dummy_head = ListNode(0)
-    curr_node = dummy_head
-    curr_node.next = head
+    prev_node = dummy_head
+    prev_node.next = head
 
-    while (curr_node.next != None and curr_node.next.next != None):
-        node_1 = curr_node.next
-        node_2 = curr_node.next.next
-        curr_node.next = node_2
+    while (prev_node.next != None and prev_node.next.next != None):
+        # Set Node_1 and Node_2
+        node_1 = prev_node.next
+        node_2 = prev_node.next.next
+
+        # Ensure the previous node points to Node_2
+        prev_node.next = node_2
+        # Swap Node_1 and Node_2's pointers
         node_1.next, node_2.next = node_2.next, node_1
 
-        curr_node = node_1
-
+        # Set the next node to previous node
+        prev_node = node_1
+    # Return the Linked List
     return dummy_head.next
 
