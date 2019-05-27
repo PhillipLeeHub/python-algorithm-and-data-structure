@@ -25,6 +25,10 @@
 #   [3,5]
 # ]
 def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    '''
+    Runtime: 100 ms, faster than 49.92% of Python3 online submissions for Combination Sum.
+    Memory Usage: 13.3 MB, less than 18.07% of Python3 online submissions for Combination Sum.
+    '''
     result_arr = []
     curr_arr = []
     self.dfs(candidates, target, result_arr, curr_arr, 0)
