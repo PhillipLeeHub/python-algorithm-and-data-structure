@@ -41,7 +41,7 @@ def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
             counter += 1
         top += 1
 
-        if counter >= num_of_elem: break
+
 
         for j in range(top, bottom + 1):
             arr_out.append(matrix[j][right])
