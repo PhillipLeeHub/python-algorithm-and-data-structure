@@ -23,19 +23,27 @@ def sudoku_solve(board):
   return backtrack(board)
   
 def backtrack(board, r=0, c=0):
-  # Go to next empty space  
+  # Go to next empty space
   while board[r][c] != '.':
-      c += 1
-      if c == 9: c, r = 0, r+1
-      if r == 9: return True
-  
-  if board[r][c] == '.':
-    for num in range(1,10):
-      if is_valid(board, r, c, str(num)):
-        board[r][c] = str(num)
-        if backtrack(board, r, c):
-          return True
-            
+    c += 1
+    # if end of column
+    if c == 9:
+      # Reset to next row
+      c, r = 0, r+1
+
+      # Check end of row
+      if r == 9:
+        # Board filled, return true
+        return True
+  # Loop through all valid numbers 1-9
+  for num in range(1,10):
+    # Check if valid
+    if is_valid(board, r, c, str(num)):
+      # Attempt the valid number
+      board[r][c] = str(num)
+      if backtrack(board, r, c):
+        return True
+  # The valid number did not work, set it back to empty space
   board[r][c] = '.'
   return False
   
