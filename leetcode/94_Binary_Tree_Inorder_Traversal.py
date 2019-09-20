@@ -42,15 +42,23 @@ def inorderTraversal_iterative(self, root: TreeNode) -> List[int]:
     '''
     stack = []
     list_result = []
-    curr = root
+    node = root
+    # Keep traversing while stack not empty or node defined
+    while (stack or node):
+        # Keep going while node defined
+        while (node):
+            # Append all found left nodes
+            stack.append(node)
 
-    while (len(stack) != 0 or curr != None):
-        while (curr != None):
-            stack.append(curr)
-            curr = curr.left
+            # Move to next left node
+            node = node.left
+        # Get node
+        node = stack.pop()
 
-        curr = stack.pop()
-        list_result.append(curr.val)
-        curr = curr.right
+        # Append to result list
+        list_result.append(node.val)
+
+        # Add right node
+        node = node.right
 
     return list_result
