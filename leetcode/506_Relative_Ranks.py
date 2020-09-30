@@ -14,25 +14,20 @@ All the scores of athletes are guaranteed to be unique.
 '''class Solution:
     def findRelativeRanks(self, nums: List[int]) -> List[str]:
         medals = ["Bronze Medal", "Silver Medal", "Gold Medal"]
-        index_dict = {}
-        res_arr = [None] * len(nums)
-
+        result_arr = [0] * (len(nums))
+        # {score:index} 
+        score_dict = {}
+        
         for index, num in enumerate(nums):
-            index_dict[num] = index
-
-        sorted_nums = sorted(nums, reverse=True)
+            score_dict[num] = index
+        nums.sort(reverse=True)
         
-        
-        
-        for _index, _num in enumerate(sorted_nums):
-            num_index = index_dict[_num]
-            if len(medals) > 0:                
-                res_arr[num_index] = medals.pop()
+        for index, num in enumerate(nums):
+            if medals:
+                result_arr[score_dict[num]] = medals.pop()
             else:
-                res_arr[num_index] = str(_index+1)
-   
-            
-        return res_arr
-            
+                result_arr[score_dict[num]] = str(index+1)
+                
+        return result_arr
                 
         
