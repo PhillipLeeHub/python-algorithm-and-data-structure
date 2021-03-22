@@ -26,4 +26,13 @@ class Solution:
         
         for index in range(len(s)//2):
             s[index],s[len(s)-1 - index] = s[len(s)-1 - index], s[index]
+        
+    def reverseStringMarch2021(self, s: List[str]) -> None:
+     start_p = 0
+        end_p = len(s)-1
+        
+        while (start_p < end_p):
+            s[start_p], s[end_p] = s[end_p], s[start_p]
+            start_p+=1
+            end_p-=1
     
