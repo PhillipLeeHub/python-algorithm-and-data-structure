@@ -55,13 +55,15 @@ class Solution:
         self.recursive(node.right)
         
     def iterative(self, root):
-        stack = [root]
+        stack = [(root, False)]
         while(len(stack)>0):
-            node = stack.pop()
-            print(node)
+            node, visted = stack.pop()
             if node:
-                self.ans.append(node.val)
-                # Note: Right leaf first due to using a stack
-                # Preorder, Root, left, right
-                stack.append(node.right)
-                stack.append(node.left)
+                if visted:
+                    self.ans.append(node.val)
+                else:
+                    # Note: Right leaf first due to using a stack
+                    # Preorder, Root, left, right
+                    stack.append((node.right, False))
+                    stack.append((node.left, False))
+                    stack.append((node, True))
