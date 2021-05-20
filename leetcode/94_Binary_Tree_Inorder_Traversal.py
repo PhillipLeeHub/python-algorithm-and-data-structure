@@ -62,3 +62,16 @@ def inorderTraversal_iterative(self, root: TreeNode) -> List[int]:
         node = node.right
 
     return list_result
+
+def iterative(self, root):
+    stack = [(root, False)]
+    while(stack):
+        node, visited = stack.pop()
+
+        if node:
+            if visited:
+                self.ans.append(node.val)
+            else:
+                stack.append((node.right, False))
+                stack.append((node, True))
+                stack.append((node.left, False))
