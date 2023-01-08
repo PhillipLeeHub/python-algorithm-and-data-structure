@@ -43,6 +43,38 @@ class Solution:
         curr = tmp_next
         
         return self.recursive(curr, prev)
+    
+    
+    
+    
+    def reverseList_2023_attempted(self, curr_node: Optional[ListNode]) -> Optional[ListNode]:
+        '''
+        1 -> 2 -> 3 -> 4 -> 5 
+
+        1 <- 2 -> 3 -> 4 -> 5
+        tmp1 = 1.next
+        tmp2 = 2.next 
+        1 <- 2.next 
+
+        1 <- 2 <- 3 -> 4 -> 5 
+        2 <- tmp
+        '''
+        prev_node = None
+        tail = None
+        while(curr_node):
+            # Save tmp variables 
+            tmp_curr_node = curr_node
+            tmp_next_node = curr_node.next
+            
+            # Reverse the linklist
+            curr_node.next = prev_node
+
+            # Set up next node
+            # Save the tail
+            prev_node = tmp_curr_node
+            tail = tmp_curr_node
+            curr_node = tmp_next_node
+        return tail
         
             
             
